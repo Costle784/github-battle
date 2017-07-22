@@ -1,13 +1,17 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var PropTypes = require('prop-types')
 require('./index.css');
 
 class Badge extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <div>
-        <img src={this.props.img} />
+        <img
+          src={this.props.img}
+          alt='Avatar'
+          style={{width:100, height:100;}}
+        />
         <h1>Name: {this.props.name} </h1>
         <h3>username: {this.props.username} </h3>
       </div>
@@ -19,24 +23,24 @@ class Users extends React.Component {
   render() {
     let friends = this.props.list.filter((user) => {
         return user.friend;
-      }).map((user) => {
-        return <li>{user.name}</li>
       });
     let notFriends = this.props.list.filter((user) => {
         return !user.friend;
-      }).map((user) => {
-        return <li>{user.name}</li>
       });
     return (
       <div>
         <h1>Friends</h1>
         <ul>
-          {friends}
+          {friends.map((user) => {
+            return <li>{user.name}</li>
+          });}
         </ul>
         <hr />
         <h1> Non Friends </h1>
         <ul>
-          {notFriends}
+          {notFriends.map((user) => {
+            return <li>{user.name}</li>
+          });}
         </ul>
       </div>
     )
@@ -45,6 +49,7 @@ class Users extends React.Component {
 
 class App extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div>
         <Users list={this.props.list} />
