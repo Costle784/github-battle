@@ -14,9 +14,9 @@ function PlayerPreview(props) {
       </div>
       <button
         className='reset'
-        onClick={props.onReset.bind(null, props.id)}
+        onClick={props.onReset.bind(null, props.id)}>
           Reset
-      />
+      </button>
     </div>
   )
 }
@@ -98,6 +98,14 @@ class Battle extends React.Component {
       return newState;
     });
   }
+  handleReset(id) {
+    this.setState(function () {
+      var newState = {};
+      newState[id + 'Name'] = '';
+      newState[id + 'Image'] = null;
+      return newState;
+    })
+  }
 
   render() {
     var playerOneName = this.state.playerOneName;
@@ -114,13 +122,27 @@ class Battle extends React.Component {
               label='Player One'
               onSubmit={this.handleSubmit}
             />}
+          {playerOneImage !== null &&
+            <PlayerPreview
+              avatar={playerOneImage}
+              username={playerOneName}
+              onReset={this.handleReset}
+              id='playerOne'
+            />}
 
-            {!playerTwoName &&
-              <PlayerInput
-                id='playerTwo'
-                label='Player Two'
-                onSubmit={this.handleSubmit}
-              />}
+          {!playerTwoName &&
+            <PlayerInput
+              id='playerTwo'
+              label='Player Two'
+              onSubmit={this.handleSubmit}
+            />}
+          {playerTwoImage !== null &&
+            <PlayerPreview
+              avatar={playerTwoImage}
+              username={playerTwoName}
+              onReset={this.handleReset}
+              id='playerTwo'
+            />}
         </div>
       </div>
     )
