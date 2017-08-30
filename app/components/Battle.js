@@ -1,6 +1,33 @@
 var React = require('react');
 var PropTypes = require('prop-types');
 
+function PlayerPreview(props) {
+  return (
+    <div>
+      <div className='column'>
+        <img
+          className='avatar'
+          src={props.avatar}
+          alt={'Avatar for ' + props.username}
+        />
+        <h2 className='username'>@{props.username}</h2>
+      </div>
+      <button
+        className='reset'
+        onClick={props.onReset.bind(null, props.id)}
+          Reset
+      />
+    </div>
+  )
+}
+
+PlayerPreview.propTypes = {
+  Avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  onReset: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired
+}
+
 class PlayerInput extends React.Component {
   constructor(props) {
     super(props);
@@ -11,9 +38,6 @@ class PlayerInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
   handleChange(event) {
-    console.log(event)
-    console.log(event.target)
-    console.log(event.target.value)
     var value = event.target.value;
 
     this.setState(function() {
@@ -78,6 +102,8 @@ class Battle extends React.Component {
   render() {
     var playerOneName = this.state.playerOneName;
     var playerTwoName = this.state.playerTwoName;
+    var playerOneImage = this.state.playerOneImage;
+    var playerTwoImage = this.state.playerTwoImage;
 
     return (
       <div>
