@@ -57,8 +57,8 @@ RepoGrid.propTypes = {
 
 
 class Popular extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       selectedLanguage: 'All',
       repos: null
