@@ -89,6 +89,7 @@ class Battle extends React.Component {
         playerTwoImage:null
       }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
   handleSubmit(id, username) {
     this.setState(function () {
@@ -115,38 +116,57 @@ class Battle extends React.Component {
 
     return (
       <div>
-        <div className = 'row'>
-          {!playerOneName &&
-            <PlayerInput
-              id='playerOne'
-              label='Player One'
-              onSubmit={this.handleSubmit}
-            />}
-          {playerOneImage !== null &&
+        <div className='row'>
+          {playerOneName ?
             <PlayerPreview
               avatar={playerOneImage}
               username={playerOneName}
               onReset={this.handleReset}
               id='playerOne'
-            />}
-
-          {!playerTwoName &&
+            /> :
             <PlayerInput
-              id='playerTwo'
-              label='Player Two'
+              id='playerOne'
+              label='Player One'
               onSubmit={this.handleSubmit}
             />}
-          {playerTwoImage !== null &&
+          {playerTwoName ?
             <PlayerPreview
               avatar={playerTwoImage}
               username={playerTwoName}
               onReset={this.handleReset}
               id='playerTwo'
+            /> :
+            <PlayerInput
+              id='playerTwo'
+              label='Player Two'
+              onSubmit={this.handleSubmit}
             />}
-        </div>
+          </div>
       </div>
     )
   }
 }
 
 module.exports = Battle;
+
+// !playerOneName &&
+//   <PlayerInput
+//     id='playerOne'
+//     label='Player One'
+//     onSubmit={this.handleSubmit}
+//   />}
+//
+// {playerOneImage &&
+//   <PlayerPreview
+//     avatar={playerOneImage}
+//     username={playerOneName}
+//     onReset={this.handleReset}
+//     id='playerOne'
+//   />}
+//
+// {!playerTwoName &&
+//   <PlayerInput
+//     id='playerTwo'
+//     label='Player Two'
+//     onSubmit={this.handleSubmit}
+//   />}
