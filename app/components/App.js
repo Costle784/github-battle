@@ -8,6 +8,7 @@ var Redirect = ReactRouter.Redirect;
 var Nav = require('./Nav');
 var Home = require('./Home');
 var Battle = require('./Battle');
+var Results = require('./Results')
 
 class App extends React.Component {
   render() {
