@@ -22,7 +22,7 @@ function PlayerPreview(props) {
 }
 
 PlayerPreview.propTypes = {
-  Avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   onReset: PropTypes.func.isRequired,
   id: PropTypes.string.isRequired
@@ -148,25 +148,3 @@ class Battle extends React.Component {
 }
 
 module.exports = Battle;
-
-// !playerOneName &&
-//   <PlayerInput
-//     id='playerOne'
-//     label='Player One'
-//     onSubmit={this.handleSubmit}
-//   />}
-//
-// {playerOneImage &&
-//   <PlayerPreview
-//     avatar={playerOneImage}
-//     username={playerOneName}
-//     onReset={this.handleReset}
-//     id='playerOne'
-//   />}
-//
-// {!playerTwoName &&
-//   <PlayerInput
-//     id='playerTwo'
-//     label='Player Two'
-//     onSubmit={this.handleSubmit}
-//   />}
