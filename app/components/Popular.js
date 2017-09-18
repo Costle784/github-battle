@@ -63,10 +63,11 @@ class Popular extends React.Component {
       selectedLanguage: 'All',
       repos: null
     };
-    this.updateLanguage = this.updateLanguage.bind(this);
+    // this.updateLanguage = this.updateLanguage.bind(this);
   }
 
   componentDidMount() {
+    console.log(this)
     this.updateLanguage(this.state.selectedLanguage)
   }
 
