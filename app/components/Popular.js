@@ -67,7 +67,6 @@ class Popular extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this)
     this.updateLanguage(this.state.selectedLanguage)
   }
 
