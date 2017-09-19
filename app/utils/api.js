@@ -18,9 +18,42 @@ function getRepos(username) {
 }
 
 function getStarCount(repos) {
-  return repos.data.reduce() 
+  return repos.data.reduce(function(count, repo) {
+    return count + repo.stargazers_count;
+  },0);
 }
 
+function calculateScore(profile, repos) {
+  var followers = profile.folowers;
+  var totalStars = getStarCount(repos);
+
+  return (followers * 3) + totalStars;
+}
+
+function handleError(error) {
+  console.warn(error);
+  return null;
+}
+
+function getUserData(player) {
+  return axios.all([
+    getProfile(player),
+    getRepos(player),
+
+  ]).then(function(data) {
+    var profile = data[0];
+    var repos = data[1];
+
+    return {
+      profile: profile,
+      score: calculateScore(profile,repos)
+    }
+  })
+}
+
+function sortPlayers(players) {
+  return 
+}
 
 module.exports = {
   battle: function(players) {
