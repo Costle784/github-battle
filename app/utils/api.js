@@ -24,7 +24,7 @@ function getStarCount(repos) {
 }
 
 function calculateScore(profile, repos) {
-  var followers = profile.folowers;
+  var followers = profile.followers;
   var totalStars = getStarCount(repos);
 
   return (followers * 3) + totalStars;
@@ -46,7 +46,7 @@ function getUserData(player) {
 
     return {
       profile: profile,
-      score: calculateScore(profile,repos)
+      score: calculateScore(profile, repos)
     }
   })
 }
