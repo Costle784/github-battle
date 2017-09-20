@@ -4,23 +4,24 @@ var api = require('../utils/api');
 var Link = require('react-router-dom').Link;
 var PropTypes = require('prop-types');
 var PlayerPreview = require('./PlayerPreview');
+var Loading = require('./Loading');
 
 function Profile(props) {
   var info = props.info
 
   return (
     <PlayerPreview username={info.login} avatar={info.avatar_url}>
-        <ul className='space-list-items'>
-          {info.name && <li>{info.name}</li>}
-          {info.location && <li>{info.location}</li>}
-          {info.company && <li>{info.company}</li>}
-          <li>Followers: {info.followers}</li>
-          <li>Following: {info.following}</li>
-          <li>Public Repos: {info.public_repos}</li>
-          {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
-        </ul>
-      </PlayerPreview>
-  )  
+      <ul className='space-list-items'>
+        {info.name && <li>{info.name}</li>}
+        {info.location && <li>{info.location}</li>}
+        {info.company && <li>{info.company}</li>}
+        <li>Followers: {info.followers}</li>
+        <li>Following: {info.following}</li>
+        <li>Public Repos: {info.public_repos}</li>
+        {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
+      </ul>
+    </PlayerPreview>
+  )
 }
 
 Profile.propTypes = {
@@ -87,7 +88,7 @@ class Results extends React.Component {
     var loading = this.state.loading;
 
     if(loading) {
-      return <p>Loading...</p>;
+      return <Loading />;
     }
 
     if(error) {
