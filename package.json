@@ -31,6 +31,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "firebase-tools": "^3.12.0",
     "html-webpack-plugin": "^2.29.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.3.0",

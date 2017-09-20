@@ -2,7 +2,6 @@ var React = require('react');
 var PropTypes = require('prop-types');
 
 function PlayerPreview(props) {
-  console.log(props.children)
   return (
     <div>
       <div className='column'>
