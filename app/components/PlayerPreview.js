@@ -2,6 +2,7 @@ var React = require('react');
 var PropTypes = require('prop-types');
 
 function PlayerPreview(props) {
+  console.log(props.children)
   return (
     <div>
       <div className='column'>
@@ -19,9 +20,7 @@ function PlayerPreview(props) {
 
 PlayerPreview.propTypes = {
   avatar: PropTypes.string.isRequired,
-  username: PropTypes.string.isRequired,
-  onReset: PropTypes.func.isRequired,
-  id: PropTypes.string.isRequired
+  username: PropTypes.string.isRequired
 }
 
 module.exports = PlayerPreview;

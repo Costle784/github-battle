@@ -64,7 +64,7 @@ class Popular extends React.Component {
       repos: null
     };
     this.updateLanguage = this.updateLanguage.bind(this);
-    
+
   }
 
   componentDidMount() {
